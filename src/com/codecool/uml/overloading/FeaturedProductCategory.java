@@ -12,28 +12,15 @@ public class FeaturedProductCategory extends ProductCategory {
         this.endDate = endDate;
     }
 
-    public Date getStartDate() {
-        return startDate;
-    }
-
-    public Date getEndDate() {
-        return endDate;
-    }
-
     @Override
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(
-                "FeaturedProductCategory:" +
-                        "id:" + getId() + "," +
-                        "name:" + getName() + "," +
-                        "department:" + getDepartment() + "," +
-                        "description:" + getDescription() + "," +
-                        "startdate:" + getStartDate() + "," +
-                        "enddate:" + getEndDate()
-
-        );
-        return stringBuilder.toString();
+        return "FeaturedProductCategory:" +
+                "id:" + getId() + "," +
+                "name:" + getName() + "," +
+                "department:" + getDepartment() + "," +
+                "description:" + getDescription() + "," +
+                "startdate:" + startDate + "," +
+                "enddate:" + endDate;
     }
 
 }

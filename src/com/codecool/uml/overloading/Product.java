@@ -3,7 +3,6 @@ package com.codecool.uml.overloading;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
-import java.util.PrimitiveIterator;
 
 public class Product {
 
@@ -18,12 +17,15 @@ public class Product {
 
     public Product() {
         this.id = counter++;
+        productList.add(this);
     }
 
     public Product(String name, float defaultPrice, Currency defaultCurrency) {
+        this.id = counter++;
         this.name = name;
         this.defaultPrice = defaultPrice;
         this.defaultCurrency = defaultCurrency;
+        productList.add(this);
     }
 
     public int getId() {
@@ -71,34 +73,32 @@ public class Product {
     }
 
     public static List<Product> getAllProductsBy(ProductCategory productCategory) {
+        List<Product> returnList = new ArrayList<>();
         for (Product product : productList) {
             if (product.getProductCategory() == productCategory) {
-                productList.add(product);
+                returnList.add(product);
             }
         }
-        return productList;
+        return returnList;
     }
 
     public static List<Product> getAllProductsBy(Supplier supplier) {
+        List<Product> returnList = new ArrayList<>();
         for (Product product : productList) {
             if (product.getSupplier() == supplier) {
-                productList.add(product);
+                returnList.add(product);
             }
         }
-        return productList;
+        return returnList;
     }
 
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(
-                "id:" + getId() + "," +
+        return "id:" + getId() + "," +
                 "name:" + getName() + "," +
                 "defaultprice:" + getDefaultPrice() + "," +
                 "defaultcurrency:" + getDefaultCurrency() + "," +
                 "productcategory:" + getProductCategory().getName() + "," +
-                "supplier:" + getSupplier().getName()
-        );
-        return stringBuilder.toString();
+                "supplier:" + getSupplier().getName();
     }
 
 }

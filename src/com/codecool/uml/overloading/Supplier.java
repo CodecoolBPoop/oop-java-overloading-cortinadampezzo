@@ -14,6 +14,7 @@ public class Supplier {
     }
 
     public Supplier(String name, String description) {
+        this.id = counter++;
         this.name = name;
         this.description = description;
     }
@@ -43,14 +44,9 @@ public class Supplier {
     }
 
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(
-                "id:" + getId() + "," +
+        return "id:" + getId() + "," +
                 "name:" + getName() + "," +
-                "description:" + getDescription()
-
-        );
-        return stringBuilder.toString();
+                "description:" + getDescription();
     }
 
 }

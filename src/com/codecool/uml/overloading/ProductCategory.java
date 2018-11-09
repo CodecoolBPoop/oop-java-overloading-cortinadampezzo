@@ -15,6 +15,7 @@ public class ProductCategory {
     }
 
     public ProductCategory(String name, String department, String description) {
+        this.id = counter++;
         this.name = name;
         this.department = department;
         this.description = description;
@@ -53,15 +54,10 @@ public class ProductCategory {
     }
 
     public String toString() {
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(
-                "id:" + getId() + "," +
+        return "id:" + getId() + "," +
                 "name:" + getName() + "," +
                 "department:" + getDepartment() + "," +
-                "description:" + getDescription()
-
-        );
-        return stringBuilder.toString();
+                "description:" + getDescription();
     }
 
 }
