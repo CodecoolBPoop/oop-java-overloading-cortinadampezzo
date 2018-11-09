@@ -43,7 +43,14 @@ public class Supplier {
     }
 
     public String toString() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(
+                "id:" + getId() + "," +
+                "name:" + getName() + "," +
+                "description:" + getDescription()
+
+        );
+        return stringBuilder.toString();
     }
 
 }

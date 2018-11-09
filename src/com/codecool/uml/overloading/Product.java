@@ -3,6 +3,7 @@ package com.codecool.uml.overloading;
 import java.util.ArrayList;
 import java.util.Currency;
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 public class Product {
 
@@ -28,7 +29,6 @@ public class Product {
     public int getId() {
         return id;
     }
-
 
     public String getName() {
         return name;
@@ -70,16 +70,35 @@ public class Product {
         this.supplier = supplier;
     }
 
-    public static List<Product> getAllProductsBy(ProductCategory productcategory) {
+    public static List<Product> getAllProductsBy(ProductCategory productCategory) {
+        for (Product product : productList) {
+            if (product.getProductCategory() == productCategory) {
+                productList.add(product);
+            }
+        }
         return productList;
     }
 
     public static List<Product> getAllProductsBy(Supplier supplier) {
+        for (Product product : productList) {
+            if (product.getSupplier() == supplier) {
+                productList.add(product);
+            }
+        }
         return productList;
     }
 
     public String toString() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(
+                "id:" + getId() + "," +
+                "name:" + getName() + "," +
+                "defaultprice:" + getDefaultPrice() + "," +
+                "defaultcurrency:" + getDefaultCurrency() + "," +
+                "productcategory:" + getProductCategory().getName() + "," +
+                "supplier:" + getSupplier().getName()
+        );
+        return stringBuilder.toString();
     }
 
 }

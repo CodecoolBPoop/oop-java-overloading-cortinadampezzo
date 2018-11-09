@@ -53,7 +53,15 @@ public class ProductCategory {
     }
 
     public String toString() {
-        return "";
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(
+                "id:" + getId() + "," +
+                "name:" + getName() + "," +
+                "department:" + getDepartment() + "," +
+                "description:" + getDescription()
+
+        );
+        return stringBuilder.toString();
     }
 
 }
